@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <link rel="stylesheet" type ="text/css" src="style.css">
+
+    </head>
+    <body>
+        <div class="jumbotron">
+            <h1 class="display-4">Conglom-O Corp</h1>
+            <p class="lead">Employee Time Sheet</p>
+            <hr class="my-4">
+            <p>Enter hours below to receive starvation-level wages. Thx. </p>
+          </div>
+    
+          <div class="card">
+            <div class="card-header">
+            Current Employees
+            </div>
+            <div class="card-body">
+                <div class="container">
+                <div class="row">
+                <p class="card-text">
+                <div class="col-md-2"> Employee Name </div>
+                <div class="col-md-2"> Start Date </div>
+                <div class="col-md-2"> Role </div>
+                <div class="col-md-2"> Months Worked </div>
+                <div class="col-md-2"> Monthly Rate ($) </div>
+                <div class="col-md-2"> Total Billed ($) </div>
+                </div>
+              </p>
+            </div>
+            </div>
+          </div>
+<p>
+    <body>
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-xl-8 offset-xl-2 py-5"><form>
+
+                        <div class="form-group">
+                            <label for="full_name_id" class="control-label">Employee Name</label>
+                            <input type="text" class="form-control" id="full_name_id" name="full_name" placeholder="John Deer">
+                        </div>	
+                    
+                        <div class="form-group">
+                            <label for="role" class="control-label">Role</label>
+                            <input type="text" class="form-control" id="role" name="role" placeholder="CEO">
+                        </div>					
+                                                
+                        <div class="form-group"> <!-- Street 2 -->
+                            <label for="startDate" class="control-label">Start Date</label>
+                            <input type="text" class="form-control" id="startDate" name="startDate" placeholder="01/01/00">
+                        </div>	
+                    
+                        <div class="form-group"> <!-- rate-->
+                            <label for="rate" class="control-label">rate</label>
+                            <input type="text" class="form-control" id="rate" name="rate" placeholder="20000">
+                        </div>			
+                        
+                        <div class="form-group"> <!-- Submit Button -->
+                            <button type="submit" class="btn btn-primary" id="submit-button">Submit</button>
+                        </div>     
+                        
+                    </form>		
+
+                </div>
+
+            </div>
+
+        </div>
+        <script src="https://www.gstatic.com/firebasejs/5.7.3/firebase.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js" integrity="sha256-dHf/YjH1A4tewEsKUSmNnV05DDbfGN3g7NMq86xgGh8=" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="script"></script>
+    
+    </body>
+</html>
