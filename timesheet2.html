@@ -16,26 +16,43 @@
     </head>
     <body>
         <div class="jumbotron">
-            <h1 class="display-4">Conglom-O Corp</h1>
-            <p class="lead">Employee Time Sheet</p>
+            <h1 class="display-4">Train Schedule</h1>
+            <p class="lead">Times Below</p>
             <hr class="my-4">
-            <p>Enter hours below to receive starvation-level wages. Thx. </p>
+            <p>Please see the attached schedule. Administrators can add new train arrivals and depautures with the form below.</p>
           </div>
     
           <div class="card">
             <div class="card-header">
-            Current Employees
+            Current Train Schedule 
             </div>
             <div class="card-body">
                 <div class="container">
                 <div class="row">
                 <p class="card-text">
-                <div class="col-md-2"> Employee Name </div>
-                <div class="col-md-2"> Start Date </div>
-                <div class="col-md-2"> Role </div>
-                <div class="col-md-2"> Months Worked </div>
-                <div class="col-md-2"> Monthly Rate ($) </div>
-                <div class="col-md-2"> Total Billed ($) </div>
+                <div class="col-md-2"> Train Name 
+                        <p><hr> </hr>
+                        <br> Midnight Train </br>
+                        <br>Ghost Train</br>
+                        <br>Train to Nowhere</br>
+                        <br>Canadian Greyhound</br>
+                        <br>Bullet Train</br>
+                        <br>Training Day</br>
+                        <br>The T</br>
+                </div>
+                <div class="col-md-2"> Destination 
+                        <p><hr> </hr>                    
+                        <br> Georgia</br>
+                        <br> The Fiery Pit </br>
+                        <br> Nowhere </br>
+                        <br> Manitoba </br>
+                        <br> Las Vegas </br>
+                        <br> Denzel, Washington </br>
+                        <br> Boston, MA</br>
+                </div>        
+                <div class="col-md-2"> Frequency </div>
+                <div class="col-md-2"> Next Arrival </div>
+                <div class="col-md-2"> Minutes Away </div>
                 </div>
               </p>
             </div>
@@ -51,26 +68,26 @@
                 <div class="col-xl-8 offset-xl-2 py-5"><form>
 
                         <div class="form-group">
-                            <label for="full_name_id" class="control-label">Employee Name</label>
-                            <input type="text" class="form-control" id="full_name_id" name="full_name" placeholder="John Deer">
+                            <label for="full_name_id" class="control-label">Train Name</label>
+                            <input type="text" class="form-control" id="train_name" name="full_name" placeholder="Early Train">
                         </div>	
                     
                         <div class="form-group">
-                            <label for="role" class="control-label">Role</label>
-                            <input type="text" class="form-control" id="role" name="role" placeholder="CEO">
+                            <label for="role" class="control-label">Destination</label>
+                            <input type="text" class="form-control" id="destination" name="role" placeholder="City">
                         </div>					
                                                 
-                        <div class="form-group"> <!-- Street 2 -->
-                            <label for="startDate" class="control-label">Start Date</label>
-                            <input type="text" class="form-control" id="startDate" name="startDate" placeholder="01/01/00">
+                        <div class="form-group"> 
+                            <label for="startDate" class="control-label">First Train Time (HH:mm - military time) </label>
+                            <input type="text" class="form-control" id="firstTrain" name="startDate" placeholder="01/01/00">
                         </div>	
                     
-                        <div class="form-group"> <!-- rate-->
-                            <label for="rate" class="control-label">rate</label>
-                            <input type="text" class="form-control" id="rate" name="rate" placeholder="20000">
+                        <div class="form-group"> 
+                            <label for="rate" class="control-label">Frequency</label>
+                            <input type="text" class="form-control" id="frequency" name="rate" placeholder="Every 15 Minutes">
                         </div>			
                         
-                        <div class="form-group"> <!-- Submit Button -->
+                        <div class="form-group"> 
                             <button type="submit" class="btn btn-primary" id="submit-button">Submit</button>
                         </div>     
                         
@@ -87,6 +104,71 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>        
         <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js" integrity="sha256-dHf/YjH1A4tewEsKUSmNnV05DDbfGN3g7NMq86xgGh8=" crossorigin="anonymous"></script>
         <script type="text/javascript" src="script"></script>
+
+        <!-- Script -->
+  <script>
+        //  START CODING BELOW!!
     
+        // Initialize Firebase
+    
+            var config = {
+            apiKey: "AIzaSyBjP0JHd-QOyiBqIumRkgnoUhuJK9DNXcQ",
+            authDomain: "test-ff4bc.firebaseapp.com",
+            databaseURL: "https://test-ff4bc.firebaseio.com",
+            projectId: "test-ff4bc",
+            storageBucket: "test-ff4bc.appspot.com",
+            messagingSenderId: "1021946727856"
+          };  
+    
+        firebase.initializeApp(config);
+    
+        // Create a variable to reference the database
+        var database = firebase.database();
+    
+        
+    
+        // Capture Button Click
+        $("#add-user").on("click", function(event) {
+          var user = {
+            name: $("#train_name").val(),
+            destination: $("#destination").val(),
+            firstTrain: $("#firstTrain").val(),
+            frequency: $("#frequency").val(),
+    
+          };
+          // Don't refresh the page!
+          event.preventDefault();
+          console.log(user);
+          database.ref().set(user); 
+          database.ref().set({
+            name: name,
+            email: email,
+            age: age,
+            comment: comment
+      });
+
+    });
+
+    // Firebase watcher + initial loader HINT: .on("value")
+    database.ref().on("value", function(snapshot) {
+
+      // Log everything that's coming out of snapshot
+      console.log(snapshot.val());
+      console.log(snapshot.val().name);
+      console.log(snapshot.val().desitnation);
+      console.log(snapshot.val().firstTrain);
+      console.log(snapshot.val().frequency);
+
+      // Change the HTML to reflect
+      $("#train_name").text(snapshot.val().name);
+      $("#destination").text(snapshot.val().email);
+      $("#firstTrain").text(snapshot.val().age);
+      $("#frequency").text(snapshot.val().comment);
+
+      // Handle the errors
+    }, function(errorObject) {
+      console.log("Errors handled: " + errorObject.code);
+    });
+    </script>
     </body>
 </html>
